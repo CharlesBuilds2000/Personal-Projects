@@ -1,3 +1,5 @@
-# Personal-Projects
+# Personal-Projects | C++
 
-These are programs that I build during my free time.
+Each folder contains a finished C++ project.
+
+These projects are mostly build using the standard C++ library.
