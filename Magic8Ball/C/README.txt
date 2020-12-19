@@ -1,5 +1,6 @@
-I have transfered this program from C++ to C.
+I have transferred this program from C++ to C.
 
-All the functionality remain the same.
+All the functionality remains the same.
 
 Type .q to terminate the program
+
