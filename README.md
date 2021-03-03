@@ -2,7 +2,8 @@
 
 ## Overview
 These projects are mostly built using the standard C++ library. 
-Most of these projects are built for academic purposes.
+
+Most of these projects are for academic purposes.
 
 ## Projects
 ### Magic 8 ball 
