@@ -7,8 +7,6 @@ using std::cin;
 
 
 int main()
-{
-    dy_Array<int> arr;
-
-    cout << arr.array()[0];
+{   
+    //WIP
 }

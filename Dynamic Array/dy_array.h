@@ -13,7 +13,6 @@ namespace charptr0
             data_type m_sum;
         
         public:
-
             dy_Array();
             dy_Array(const data_type &inital_data);
             
