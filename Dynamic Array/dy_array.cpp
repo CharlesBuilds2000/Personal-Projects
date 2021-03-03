@@ -41,6 +41,25 @@ namespace charptr0
         delete modified_data; //free the memory and delete the temp array
     }
 
+
+    template <typename data_type>
+    //linear search for an given element, assuming only 1 exist
+    //returns the index of the element
+    int dy_Array<data_type>::search(const data_type &element) 
+    {
+        int index = -1;
+
+        for(size_t i = 0; i < length(); i++)
+        {
+            if(this->data_ptr[i] == element) {index = i; break;}
+        }
+
+        return index;
+    }
+
+
+
+
     template <typename data_type>
     data_type* dy_Array<data_type>::array() const
     {
