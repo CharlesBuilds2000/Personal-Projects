@@ -13,7 +13,7 @@ Most of these projects are for academic purposes.
 * Built during the summer of 2020, a fun side project
 
 ### Musical Scales
-* Built using Linked List, this was built right after I've finished learning the topics on nodes and pointers
+* After taking a course on nodes and pointers, this project was built using a circular linked list
 
 ### Dynmaic Array
 * WIP as of March of 2021
