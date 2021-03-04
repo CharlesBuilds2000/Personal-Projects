@@ -1,3 +1,4 @@
+#include <iostream> //cout
 #include "dy_array.h"
 
 namespace charptr0
@@ -57,7 +58,7 @@ namespace charptr0
             else {modified_data[i] = data_ptr[i];} //copy all values before the index
 
         } 
-        
+
         free(data_ptr); 
 
         data_ptr = new data_type[size]; //allocate the main array with the correct size
@@ -81,6 +82,27 @@ namespace charptr0
         }
 
         return index;
+    }
+
+    template <typename data_type>
+    void dy_Array<data_type>::remove(const data_type &element)
+    {
+        if(size = 0) {return;}
+    }
+
+    template<typename data_type>
+    void dy_Array<data_type>::change(const size_t &index, const data_type data)
+    {
+        this->data_ptr[index] = data;
+    }
+
+    template<typename data_type>
+    void dy_Array<data_type>::replace(const data_type &old_data, const data_type &new_data)
+    {
+        for(size_t i = 0; i < size; i++)
+        {
+            if(this->data_ptr[i] == old_data) {this->data_ptr[i] = new_data;}
+        }
     }
 
     template <typename data_type>
