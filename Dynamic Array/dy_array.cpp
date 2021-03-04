@@ -41,6 +41,32 @@ namespace charptr0
         delete modified_data; //free the memory and delete the temp array
     }
 
+    template <typename data_type>
+    void dy_Array<data_type>::insert(const data_type &data, const size_t &index)
+    {
+        if(size == 0) {append(data); return;}
+
+        bool passedTheIndex = false;
+        this->size++; //increase the size
+        data_type* modified_data = new data_type[size]; //create a new temp array with the new size
+
+        for(size_t i = 0; i < size; i++) //copy all the values that came before the index
+        {
+            if(i == index) {modified_data[i] = data; passedTheIndex = true;} //once we reached the index, insert the new element
+            else if(passedTheIndex) {modified_data[i] = data_ptr[i - 1];} //once the new element has been inserted, start to insert the rest of the element
+            else {modified_data[i] = data_ptr[i];} //copy all values before the index
+
+        } 
+        
+        free(data_ptr); 
+
+        data_ptr = new data_type[size]; //allocate the main array with the correct size
+
+        for(size_t i = 0; i < size; i++) {data_ptr[i] = modified_data[i];} //copy back the values including the new element
+
+        delete modified_data; //free the memory and delete the temp array        
+    }
+
 
     template <typename data_type>
     //linear search for an given element, assuming only 1 exist
@@ -57,14 +83,9 @@ namespace charptr0
         return index;
     }
 
-
-
-
     template <typename data_type>
-    data_type* dy_Array<data_type>::array() const
-    {
-        return this->data_ptr;
-    }
+    data_type* dy_Array<data_type>::array() const {return this->data_ptr;}
+
 
     template <typename data_type>
     size_t dy_Array<data_type>::length() const {return this->size;}
