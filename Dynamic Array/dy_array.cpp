@@ -68,7 +68,6 @@ namespace charptr0
         delete modified_data; //free the memory and delete the temp array        
     }
 
-
     template <typename data_type>
     //linear search for an given element, assuming only 1 exist
     //returns the index of the element
@@ -87,14 +86,31 @@ namespace charptr0
     template <typename data_type>
     void dy_Array<data_type>::remove(const data_type &element)
     {
-        if(size = 0) {return;}
+        if(size == 0) {return;}
+
+        int index = -1; 
+
+        for(size_t i = 0; i < size; i++) //find the element
+        {
+            if(data_ptr[i] == element) 
+            {
+                index = i; 
+                break;
+            }
+        } 
+
+        if(index == -1) {return;} //if no element was found
+
+        for(size_t i = index; i < size-1; i++)
+        {
+            this->data_ptr[i] = data_ptr[i + 1];
+        }
+
+        this->size--; //decrement size by 1
     }
 
     template<typename data_type>
-    void dy_Array<data_type>::change(const size_t &index, const data_type data)
-    {
-        this->data_ptr[index] = data;
-    }
+    void dy_Array<data_type>::change(const size_t &index, const data_type data) {this->data_ptr[index] = data;}
 
     template<typename data_type>
     void dy_Array<data_type>::replace(const data_type &old_data, const data_type &new_data)
@@ -107,7 +123,6 @@ namespace charptr0
 
     template <typename data_type>
     data_type* dy_Array<data_type>::array() const {return this->data_ptr;}
-
 
     template <typename data_type>
     size_t dy_Array<data_type>::length() const {return this->size;}
