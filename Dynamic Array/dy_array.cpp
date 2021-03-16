@@ -1,4 +1,3 @@
-#include <iostream> //cout
 #include "dy_array.h"
 
 namespace charptr0
