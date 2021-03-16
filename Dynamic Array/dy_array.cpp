@@ -124,5 +124,4 @@ namespace charptr0
 
     template <typename data_type>
     size_t dy_Array<data_type>::length() const {return this->size;}
-
 }
