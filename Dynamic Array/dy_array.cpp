@@ -17,7 +17,7 @@ namespace charptr0
     template <typename data_type>
     void dy_Array<data_type>::append(const data_type &data) //append an element 
     {
-        if(size == 0) //if the array is empty, set the data to be the first element
+        if(this->size == 0) //if the array is empty, set the data to be the first element
         {
             this->data_ptr = new data_type[1];
             this->data_ptr[0] = data;
@@ -33,11 +33,11 @@ namespace charptr0
 
         modified_data[size-1] = data; //append the data to the end of the temp array
 
-        free(data_ptr); 
+        delete[] this->data_ptr;
 
-        data_ptr = new data_type[size]; //allocate the main array with the correct size
+        this->data_ptr = new data_type[size]; //allocate the main array with the correct size
 
-        for(size_t i = 0; i < size; i++) {data_ptr[i] = modified_data[i];} //copy back the values including the new element
+        for(size_t i = 0; i < this->size; i++) {this->data_ptr[i] = modified_data[i];} //copy back the values including the new element
 
         delete modified_data; //free the memory and delete the temp array
     }
@@ -45,37 +45,35 @@ namespace charptr0
     template <typename data_type>
     void dy_Array<data_type>::insert(const data_type &data, const size_t &index)
     {
-        if(size == 0) {append(data); return;}
+        if(this->size == 0) {append(data); return;}
 
         bool passedTheIndex = false;
         this->size++; //increase the size
         data_type* modified_data = new data_type[size]; //create a new temp array with the new size
 
-        for(size_t i = 0; i < size; i++) //copy all the values that came before the index
+        for(size_t i = 0; i < this->size; i++) //copy all the values that came before the index
         {
             if(i == index) {modified_data[i] = data; passedTheIndex = true;} //once we reached the index, insert the new element
-            else if(passedTheIndex) {modified_data[i] = data_ptr[i - 1];} //once the new element has been inserted, start to insert the rest of the element
-            else {modified_data[i] = data_ptr[i];} //copy all values before the index
+            else if(passedTheIndex) {modified_data[i] = this->data_ptr[i - 1];} //once the new element has been inserted, start to insert the rest of the element
+            else {modified_data[i] = this->data_ptr[i];} //copy all values before the index
 
         } 
 
-        free(data_ptr); 
+        delete[] this->data_ptr;
 
-        data_ptr = new data_type[size]; //allocate the main array with the correct size
+        this->data_ptr = new data_type[size]; //allocate the main array with the correct size
 
-        for(size_t i = 0; i < size; i++) {data_ptr[i] = modified_data[i];} //copy back the values including the new element
+        for(size_t i = 0; i < this->size; i++) {this->data_ptr[i] = modified_data[i];} //copy back the values including the new element
 
         delete modified_data; //free the memory and delete the temp array        
     }
 
     template <typename data_type>
-    //linear search for an given element, assuming only 1 exist
-    //returns the index of the element
     int dy_Array<data_type>::search(const data_type &element) 
     {
         int index = -1;
 
-        for(size_t i = 0; i < length(); i++)
+        for(size_t i = 0; i < this->size; i++)
         {
             if(this->data_ptr[i] == element) {index = i; break;}
         }
@@ -86,13 +84,13 @@ namespace charptr0
     template <typename data_type>
     void dy_Array<data_type>::remove(const data_type &element)
     {
-        if(size == 0) {return;}
+        if(this->size == 0) {return;}
 
         int index = -1; 
 
         for(size_t i = 0; i < size; i++) //find the element
         {
-            if(data_ptr[i] == element) 
+            if(this->data_ptr[i] == element) 
             {
                 index = i; 
                 break;
@@ -115,7 +113,7 @@ namespace charptr0
     template<typename data_type>
     void dy_Array<data_type>::replace(const data_type &old_data, const data_type &new_data)
     {
-        for(size_t i = 0; i < size; i++)
+        for(size_t i = 0; i < this->size; i++)
         {
             if(this->data_ptr[i] == old_data) {this->data_ptr[i] = new_data;}
         }
