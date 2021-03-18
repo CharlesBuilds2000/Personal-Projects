@@ -16,4 +16,4 @@ Most of these projects are for academic purposes.
 * After taking a course on nodes and pointers, this project was built using a circular linked list
 
 ### Dynmaic Array
-* WIP as of March of 2021
+* Created a dynamic array using pointers. Finished on March 18th, 2021
