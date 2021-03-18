@@ -1,4 +1,4 @@
-# Personal-Projects | C++
+# Academic Projects
 
 ## Overview
 These projects are mostly built using the standard C++ library. 
