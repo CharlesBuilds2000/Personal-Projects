@@ -8,6 +8,7 @@
 
 #include <stdlib.h>
 #include <iostream>
+#include <assert.h>
 #include <ctime>
 #include <chrono>
 
@@ -42,6 +43,8 @@ int askUserForSize()
     cout << "Please enter the size of the array: ";
     cin >> size;
 
+    assert(size > 0);
+
     return size;
 }
 
@@ -51,6 +54,8 @@ int askUserForMaxBound()
 
     cout << "Please enter the max bound: ";
     cin >> max_bound;
+
+    assert(max_bound >= 0);
 
     return max_bound;
 }
@@ -69,7 +74,7 @@ void printArray(const int* nums, const int size)
 /*
     Main function template code
 
-        int size = askUserForSize();
+    int size = askUserForSize();
     int max_bound = askUserForMaxBound();
     int* nums = generateNums(size, max_bound);
 
