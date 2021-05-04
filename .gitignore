@@ -9,3 +9,5 @@ Binary_Trees/Max_Heap/main
 Sorting_Algorithms/bubblesort
 Sorting_Algorithms/selectionsort
 Sorting_Algorithms/mergesort
+Sorting_Algorithms/quicksort
+Sorting_Algorithms/heapsort
